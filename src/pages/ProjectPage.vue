@@ -67,7 +67,7 @@
       <div class="cover-image-wrap" v-if="project.coverImage">
         <div class="container">
           <div class="cover-image">
-            <img :src="project.coverImage" :alt="project.title + ' cover'" @error="coverError = true" v-if="!coverError" />
+            <img :src="resolveImage(project.coverImage)" :alt="project.title + ' cover'" @error="coverError = true" v-if="!coverError" />
             <div class="cover-placeholder" v-else>
               <div class="placeholder-content">
                 <span class="placeholder-emoji">{{ categoryEmoji }}</span>
@@ -140,6 +140,15 @@ import ContentRenderer from '../components/ui/ContentRenderer.vue'
 
 const route = useRoute()
 const coverError = ref(false)
+
+const resolveImage = (path) => {
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  const cleanBase = base.endsWith('/') ? base : base + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return cleanBase + cleanPath
+}
 
 const project = computed(() =>
   projects.find(p => p.slug === route.params.slug) ?? null

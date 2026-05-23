@@ -2,7 +2,7 @@
   <figure class="block-image">
     <div class="image-wrap">
       <img
-        :src="block.src"
+        :src="resolvedSrc"
         :alt="block.caption || 'Project image'"
         loading="lazy"
         @error="onError"
@@ -19,11 +19,21 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const props = defineProps({ block: Object })
 const showPlaceholder = ref(!props.block.src)
 const imgEl = ref(null)
+
+const resolvedSrc = computed(() => {
+  const path = props.block.src
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  const cleanBase = base.endsWith('/') ? base : base + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return cleanBase + cleanPath
+})
 
 const onError = () => { showPlaceholder.value = true }
 </script>
