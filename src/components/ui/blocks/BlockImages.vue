@@ -1,19 +1,45 @@
 <template>
   <div class="block-images" :class="`cols-${block.items?.length > 2 ? 3 : 2}`">
     <figure v-for="(item, i) in block.items" :key="i" class="gallery-item">
-      <div class="image-wrap">
-        <img :src="item.src" :alt="item.caption || 'Gallery image'" loading="lazy" @error="e => e.target.parentElement.classList.add('error')" />
+      <div class="image-wrap" @click="selectedImage = resolveSrc(item.src)">
+        <img :src="resolveSrc(item.src)" :alt="item.caption || 'Gallery image'" loading="lazy" @error="e => e.target.parentElement.classList.add('error')" />
         <div class="img-placeholder">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
       </div>
       <figcaption v-if="item.caption">{{ item.caption }}</figcaption>
     </figure>
+
+    <Teleport to="body">
+      <Transition name="lightbox-fade">
+        <div v-if="selectedImage" class="lightbox-overlay" @click="selectedImage = null">
+          <div class="lightbox-content">
+            <img :src="selectedImage" alt="Enlarged view" />
+            <button class="close-btn" @click.stop="selectedImage = null">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 defineProps({ block: Object })
+
+const selectedImage = ref(null)
+
+const resolveSrc = (path) => {
+  if (!path) return ''
+  if (path.startsWith('http')) return path
+  const base = import.meta.env.BASE_URL || '/'
+  const cleanBase = base.endsWith('/') ? base : base + '/'
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  return cleanBase + cleanPath
+}
 </script>
 
 <style scoped>
@@ -34,6 +60,7 @@ defineProps({ block: Object })
   background: var(--color-surface);
   aspect-ratio: 4/3;
   position: relative;
+  cursor: pointer;
 }
 
 .image-wrap img {
@@ -68,5 +95,70 @@ figcaption {
 
 @media (max-width: 640px) {
   .cols-2, .cols-3 { grid-template-columns: 1fr; }
+}
+</style>
+
+<style>
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+.lightbox-fade-enter-active,
+.lightbox-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-fade-enter-from,
+.lightbox-fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    top: -40px;
+    right: 0;
+  }
 }
 </style>

@@ -2,10 +2,12 @@
  * Projects Data Schema
  *
  * @typedef {Object} ProjectContent
- * @property {'intro'|'heading'|'text'|'callout'|'quote'} type - The type of content block
- * @property {string} value - The main text content
+ * @property {'intro'|'heading'|'text'|'callout'|'quote'|'image'|'images'} type - The type of content block
+ * @property {string} [value] - The main text content
  * @property {string} [label] - Used only for 'callout' type (e.g., '💡 Key Insight')
  * @property {string} [author] - Used only for 'quote' type
+ * @property {string} [src] - Used only for 'image' type
+ * @property {Array<{src: string, caption?: string}>} [items] - Used only for 'images' type
  *
  * @typedef {Object} Project
  * @property {number} id - Unique identifier
@@ -106,7 +108,7 @@ export const projects = [
     tech: ["Unity", "C#", "Google Play API", "Pixel Art", "Particle Systems"],
     github: null,
     demo: "https://naufalazzmy.itch.io/ancient-climber",
-    featured: true,
+    featured: false,
     role: "Co-Developer & Gameplay Engineer",
     duration: "2 Months",
     year: "2020",
@@ -281,354 +283,155 @@ export const projects = [
       },
     ],
   },
+  //web project
   {
     id: 5,
-    slug: "racing-sim-prototype",
-    title: "Racing Sim Prototype",
-    category: "Game Dev",
+    slug: "hospital-appointment-scheduler",
+    title: "Appointment & Service Scheduler",
+    category: "Web App",
     description:
-      "A physics-based racing simulation prototype with realistic car handling, drift mechanics, and procedural track generation.",
-    coverImage: "/projects/racing-sim/cover.png",
-    tech: ["Unity", "C#", "PhysX"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
+      "A streamlined, end-to-end scheduling platform that cures the headache of booking hospital services, managing appointments, and handling payments.",
+    coverImage: "/projects/appointment/cover.jpg",
+    image: "/projects/appointment/snap0.jpg",
+    tech: ["PHP", "Vue.js", "MySQL", "Telegram Web API", "NGINX"],
+    github: null,
+    demo: "https://corner-rsud.ntbprov.go.id/",
     featured: false,
-    role: "Solo Developer",
-    duration: "2 months",
-    year: "2024",
+    role: "Full-Stack Developer",
+    duration: "4 Weeks",
+    year: "2023",
     content: [
       {
         type: "intro",
         value:
-          "A pure passion project — I wanted to understand how racing games implement realistic car physics. Spoiler: it's incredibly complicated and I now have a deep respect for studios like Polyphony Digital.",
+          "Let’s face it: hospital visits are stressful enough without wrestling with a clunky, outdated booking system. The goal here was to completely cure the administrative headache for both patients and medical staff.",
       },
-      { type: "heading", value: "Wheel Physics" },
+      {
+        type: "heading",
+        value: "The Diagnosis: Untangling the Booking Chaos",
+      },
       {
         type: "text",
         value:
-          "Real-world tire friction isn't linear — it follows the Pacejka Magic Formula. I implemented a simplified version that captures the key behavior: traction drops sharply past the grip limit, giving that satisfying on-the-edge feel.",
+          "Patients needed a frictionless, intuitive way to schedule a variety of services—from routine doctor consultations and vaccinations to specialized lab examinations. On the flip side, hospital administrators required a powerful, no-nonsense dashboard to manage this constant influx of appointments and track payments without dropping the ball. The core challenge was translating a complex operational pipeline into a beautifully simple UI/UX.",
+      },
+      {
+        type: "heading",
+        value: "The Treatment: Vue, PHP, and a Dash of Telegram",
+      },
+      {
+        type: "text",
+        value:
+          "I architected an end-to-end web application designed from the ground up for simplicity. I built a snappy, reactive frontend using Vue.js to guide users effortlessly from service selection to final payment. Under the hood, I engineered a robust PHP and MySQL backend to handle the heavy lifting of schedule conflicts and data management. To keep everyone instantly in the loop, I integrated the Telegram Web API, serving up real-time notifications right to the users' pockets.",
+      },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/appointment/snap0.jpg" },
+          { src: "/projects/appointment/snap1.jpg" },
+        ],
+      },
+      {
+        type: "callout",
+        label: "💡 Key Insight",
+        value:
+          "Leveraging the Telegram Web API cleverly bypassed the friction of traditional SMS or forcing users to download yet another standalone app, delivering instant updates through a platform they already use and trust.",
+      },
+      {
+        type: "heading",
+        value: "The Prognosis: A Healthy, Automated Ecosystem",
+      },
+      {
+        type: "text",
+        value:
+          "The result is a buttery-smooth scheduling engine that successfully bridges the gap between patient needs and hospital operations. By automating the booking and payment pipelines, the platform gives patients their time (and sanity) back, while empowering administrators to ditch the spreadsheets and focus on delivering excellent healthcare services.",
+      },
+      {
+        type: "quote",
+        author: "Project Retrospective",
+        value:
+          "Good design is good healthcare. When you make the administrative side invisible, you let the medical side shine.",
       },
     ],
   },
-
-  // --- AI PROJECTS ---
   {
     id: 6,
-    slug: "sketchmind",
-    title: "SketchMind",
-    category: "AI",
+    slug: "internal-it-ticketing-system",
+    title: "Automated IT Support & Ticketing Command Center",
+    category: "Web App",
     description:
-      "A real-time sketch recognition system using CNNs trained on the Quick Draw dataset. Identifies drawings with 94% accuracy.",
-    coverImage: "/projects/sketchmind/cover.png",
-    tech: ["Python", "TensorFlow", "OpenCV", "Flask"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: true,
-    role: "ML Engineer",
-    duration: "3 months",
-    year: "2024",
+      "A centralized, real-time ticketing platform designed to eradicate administrative chaos. Features include multi-channel bot notifications and live chat consultation to supercharge internal team productivity.",
+    coverImage: "/projects/laporsimrs/cover0.jpg",
+    image: "/projects/ticketing-system-details.jpg",
+    tech: [
+      "Laravel",
+      "Tailwind CSS",
+      "WhatsApp API",
+      "Telegram API",
+      "WebSockets",
+    ],
+    github: null,
+    demo: "https://laporsimrs.rsudntb.id/",
+    featured: false,
+    role: "Full-Stack Developer",
+    duration: "3 Months",
+    year: "2022",
     content: [
       {
         type: "intro",
         value:
-          "SketchMind grew out of a simple question: can a computer recognize what I'm drawing *while* I'm drawing it? Not after I'm done — in real-time, stroke by stroke. Turns out, yes. With the right architecture.",
+          "Let’s face it: trying to manage IT requests through hallway shoulder-taps and scattered messages is a recipe for administrative disaster. Our internal department was hitting a wall with technician reporting and support logistics. The solution? Scrapping the manual chaos and engineering a centralized, real-time ticketing powerhouse.",
       },
-      { type: "heading", value: "Dataset & Training" },
+      {
+        type: "heading",
+        value: "The Catalyst: Taming the Reporting Wild West",
+      },
       {
         type: "text",
         value:
-          "Google's Quick Draw dataset has 50 million drawings across 345 categories. I sampled 1,000 drawings per category for training. The trick was augmentation — rotations, scale jitter, stroke order shuffling — to make the model robust to how differently people draw the same thing.",
+          "The core problem was visibility and workflow friction. Users needed a frictionless way to signal for help, and our IT squad needed a structured pipeline to triage and resolve those issues instantly. I designed this system to bridge that gap. Now, when a user hits a roadblock, they simply log a ticket, and our team is mobilized in seconds.",
       },
       {
         type: "callout",
-        label: "📊 Results",
+        label: "💡 Strategic Impact",
         value:
-          "94.2% top-1 accuracy on the test set. Real-time inference at ~40ms per frame on CPU — fast enough to feel instant.",
+          "By transitioning from reactive scrambling to proactive tracking, we drastically reduced response times and eliminated the 'lost ticket' syndrome.",
       },
-      { type: "heading", value: "The Real-Time Pipeline" },
+      {
+        type: "heading",
+        value: "Under the Hood: Building the Ultimate Workflow",
+      },
       {
         type: "text",
         value:
-          "OpenCV captures the canvas state every 200ms. The stroke data is rasterized into a 28×28 grayscale image (same format as training data) and passed through the CNN. Flask serves the predictions via WebSocket to keep latency low.",
+          "A ticketing system is only as good as its communication loop. Beyond building an intuitive admin dashboard with deep reporting analytics, I wired up real-time progress tracking. To ensure nothing slipped through the cracks, I integrated multi-channel notifications directly into WhatsApp and Telegram. If a user needs immediate hand-holding, they can bypass the queue entirely and use the built-in real-time chat consultation feature.",
       },
-      { type: "heading", value: "What I'd Do Differently" },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/laporsimrs/cover.jpg" },
+          { src: "/projects/laporsimrs/img0.jpg" },
+          { src: "/projects/laporsimrs/img1.jpg" },
+          { src: "/projects/laporsimrs/img2.jpg" },
+        ],
+      },
+      {
+        type: "heading",
+        value: "The Result: Productivity on Autopilot",
+      },
       {
         type: "text",
         value:
-          "The model struggles with partial drawings — it needs a certain amount of strokes before it's confident. A transformer-based approach operating on raw stroke sequences (like Google's SketchRNN) would handle this much better. That's the v2 I haven't built yet.",
+          "Deploying this platform was a massive quality-of-life upgrade for the entire company. By streamlining the request lifecycle and automating the communication busywork, we fundamentally leveled up the department's productivity and gave the IT team their sanity back.",
       },
       {
         type: "quote",
         value:
-          "Training a model is easy. Making it useful in the real world is the actual challenge.",
-        author: "Every ML engineer, eventually",
-      },
-    ],
-  },
-  {
-    id: 7,
-    slug: "sentimentscope",
-    title: "SentimentScope",
-    category: "AI",
-    description:
-      "NLP pipeline for multi-class sentiment analysis on social media data. Fine-tuned BERT model with custom Indonesian language support.",
-    coverImage: "/projects/sentimentscope/cover.png",
-    tech: ["Python", "HuggingFace", "Transformers", "FastAPI"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "ML Engineer",
-    duration: "2 months",
-    year: "2024",
-    content: [
-      {
-        type: "intro",
-        value:
-          "Indonesian-language NLP is an underserved area. Most sentiment tools are English-first and perform poorly on Indonesian social media text — which is heavy with slang, abbreviations, and Javanese loanwords. SentimentScope was my attempt to fix that.",
-      },
-      { type: "heading", value: "Fine-tuning IndoBERT" },
-      {
-        type: "text",
-        value:
-          "I started with IndoBERT — a BERT model pre-trained on Indonesian text — and fine-tuned it on a custom dataset of 15,000 labeled tweets. The labeling process itself was the hardest part: Indonesian internet slang is fast-moving and highly contextual.",
-      },
-    ],
-  },
-  {
-    id: 8,
-    slug: "visionsort",
-    title: "VisionSort",
-    category: "AI",
-    description:
-      "Automated image classification and tagging system for organizing personal photo libraries using transfer learning.",
-    coverImage: "/projects/visionsort/cover.png",
-    tech: ["Python", "PyTorch", "ResNet", "SQLite"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "ML Engineer",
-    duration: "6 weeks",
-    year: "2023",
-    content: [
-      {
-        type: "intro",
-        value:
-          "I had 40,000 photos sitting in a folder called 'Misc'. VisionSort was born out of that personal frustration — a tool that automatically organizes your photos by what's in them.",
-      },
-      { type: "heading", value: "Transfer Learning Approach" },
-      {
-        type: "text",
-        value:
-          "ResNet-50 pre-trained on ImageNet gives you a powerful feature extractor out of the box. I replaced the classification head with a multi-label classifier and fine-tuned it on a curated set of personal photo categories: landscape, portrait, food, architecture, travel.",
-      },
-    ],
-  },
-  {
-    id: 9,
-    slug: "chatdoc",
-    title: "ChatDoc",
-    category: "AI",
-    description:
-      "RAG-based chatbot that allows users to have conversations with their PDF documents. Built with LangChain and local LLMs.",
-    coverImage: "/projects/chatdoc/cover.png",
-    tech: ["Python", "LangChain", "Ollama", "ChromaDB"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "AI Engineer",
-    duration: "5 weeks",
-    year: "2024",
-    content: [
-      {
-        type: "intro",
-        value:
-          "ChatDoc is what happens when you're tired of Ctrl+F. Upload any PDF — research paper, contract, textbook — and ask it questions in plain language. The answers cite the exact page.",
-      },
-      { type: "heading", value: "The RAG Architecture" },
-      {
-        type: "text",
-        value:
-          "Retrieval-Augmented Generation: the document is chunked and embedded into a vector database (ChromaDB). When you ask a question, the most relevant chunks are retrieved and injected into the LLM's context. Ollama runs everything locally — no API keys, no data leaving your machine.",
-      },
-      {
-        type: "callout",
-        label: "🔒 Privacy First",
-        value:
-          "All processing is local. Your documents never touch an external server.",
-      },
-    ],
-  },
-  {
-    id: 10,
-    slug: "posecoach",
-    title: "PoseCoach",
-    category: "AI",
-    description:
-      "Real-time workout posture analysis using MediaPipe and custom angle detection algorithms. Gives live feedback on exercise form.",
-    coverImage: "/projects/posecoach/cover.png",
-    tech: ["Python", "MediaPipe", "OpenCV", "Streamlit"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "ML Engineer",
-    duration: "4 weeks",
-    year: "2024",
-    content: [
-      {
-        type: "intro",
-        value:
-          "Bad gym form leads to injuries. Good gym form is hard to self-monitor. PoseCoach uses your webcam to watch your posture and tell you in real-time if your squat depth is off or your back is rounding.",
-      },
-      { type: "heading", value: "Pose Estimation & Angle Math" },
-      {
-        type: "text",
-        value:
-          "MediaPipe gives you 33 body landmarks per frame. The real work is defining 'correct form' as a set of joint angle constraints — e.g., for a squat, knee angle should be ≤ 90° at depth, and spine angle should stay within 30° of vertical.",
-      },
-    ],
-  },
-
-  // --- WEB APPS ---
-  {
-    id: 11,
-    slug: "devboard",
-    title: "DevBoard",
-    category: "Web App",
-    description:
-      "A personal productivity dashboard for developers — integrates GitHub activity, task management, and Pomodoro timer in one view.",
-    coverImage: "/projects/devboard/cover.png",
-    tech: ["Vue", "Node.js", "PostgreSQL", "GitHub API"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: true,
-    role: "Full Stack Developer",
-    duration: "2 months",
-    year: "2024",
-    content: [
-      {
-        type: "intro",
-        value:
-          "I had 5 different tabs open at all times — GitHub, a todo app, a Pomodoro timer, my calendar, and Slack. DevBoard was my attempt to collapse all of that into one focused view designed specifically for how I work.",
-      },
-      { type: "heading", value: "The Design Philosophy" },
-      {
-        type: "text",
-        value:
-          "Productivity tools fail when they become productivity burdens. DevBoard's UI is built around a single principle: show only what you need right now. Everything else is one click away, not front-and-center.",
-      },
-      {
-        type: "callout",
-        label: "⚡ Key Feature",
-        value:
-          "The GitHub activity heatmap pulls your real contribution data and overlays it with your focus session history — so you can see the correlation between deep work time and output.",
-      },
-      { type: "heading", value: "Technical Architecture" },
-      {
-        type: "text",
-        value:
-          "Vue 3 frontend with a lightweight Node.js/Express backend for OAuth and caching GitHub API responses (rate limits are brutal). PostgreSQL stores tasks, Pomodoro history, and user preferences. The whole thing runs in Docker.",
-      },
-      { type: "heading", value: "Lessons Learned" },
-      {
-        type: "text",
-        value:
-          "I built DevBoard for myself, which meant I was both developer and primary user. This was a double-edged sword — I iterated fast because I felt every rough edge immediately, but I also fell into the trap of building features I personally wanted rather than ones that made the core experience better.",
-      },
-      {
-        type: "quote",
-        value:
-          "The hardest product decision is not what to build — it's what to cut.",
-        author: "Every product manager ever",
-      },
-    ],
-  },
-  {
-    id: 12,
-    slug: "linkbase",
-    title: "Linkbase",
-    category: "Web App",
-    description:
-      "A self-hosted bookmark manager with tagging, full-text search, and browser extension. Think Pocket, but yours.",
-    coverImage: "/projects/linkbase/cover.png",
-    tech: ["React", "Express", "PostgreSQL", "Docker"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "Full Stack Developer",
-    duration: "6 weeks",
-    year: "2023",
-    content: [
-      {
-        type: "intro",
-        value:
-          "Pocket killed its free tier. Raindrop is great but subscription-based. I wanted a bookmark manager that I owned completely — data, hosting, the whole stack. So I built one.",
-      },
-      { type: "heading", value: "Full-Text Search" },
-      {
-        type: "text",
-        value:
-          "PostgreSQL's built-in tsvector/tsquery full-text search is surprisingly powerful. Linkbase indexes the title, description, tags, and even the scraped page content — so you can search for what was on the page, not just what you named the bookmark.",
-      },
-    ],
-  },
-  {
-    id: 13,
-    slug: "eventflow",
-    title: "EventFlow",
-    category: "Web App",
-    description:
-      "Event management platform with ticket generation, attendee check-in QR codes, and real-time analytics dashboard.",
-    coverImage: "/projects/eventflow/cover.png",
-    tech: ["Vue", "Laravel", "MySQL", "Chart.js"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "Full Stack Developer",
-    duration: "3 months",
-    year: "2023",
-    content: [
-      {
-        type: "intro",
-        value:
-          "A friend ran campus events and was managing attendees in a Google Sheet. EventFlow replaced that — digital tickets, QR check-ins, live attendance tracking, and a post-event analytics report.",
-      },
-      { type: "heading", value: "QR Check-in System" },
-      {
-        type: "text",
-        value:
-          "Each ticket gets a cryptographically signed QR code. The check-in app (a PWA) scans it, validates the signature, and marks attendance — all offline-capable. When connectivity resumes, it syncs. This was critical for venues with spotty WiFi.",
-      },
-    ],
-  },
-  {
-    id: 14,
-    slug: "openmenu",
-    title: "OpenMenu",
-    category: "Web App",
-    description:
-      "A restaurant digital menu platform with QR code generation, order management, and a no-code menu builder for owners.",
-    coverImage: "/projects/openmenu/cover.png",
-    tech: ["Next.js", "Supabase", "Tailwind", "Stripe"],
-    github: "https://github.com/naufalazzmy",
-    demo: null,
-    featured: false,
-    role: "Full Stack Developer",
-    duration: "2 months",
-    year: "2024",
-    content: [
-      {
-        type: "intro",
-        value:
-          "Post-pandemic, every restaurant had a QR code menu — but most were just PDFs. OpenMenu is an actual platform: a no-code builder for restaurant owners, a customer-facing menu with real-time availability, and an order management dashboard.",
-      },
-      { type: "heading", value: "No-Code Builder" },
-      {
-        type: "text",
-        value:
-          "The hardest UI problem was making the menu builder genuinely usable by non-technical restaurant owners. Drag-and-drop category ordering, image upload with auto-resize, and live preview — all built in Next.js with careful attention to mobile usability.",
+          "Turning a logistical bottleneck into a slick, automated workflow is exactly why I build software. Good code doesn't just process data; it gives people their time back.",
+        author: "M Naufal Azzmi H.",
       },
     ],
   },
 ];
 
-export const categories = ["All", "Game Dev", "AI", "Web App"];
+export const categories = ["All", "Web App", "Game Dev", "AI Research"];
