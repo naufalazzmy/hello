@@ -3,8 +3,9 @@
     <!-- Particle Canvas -->
     <canvas ref="canvas" class="absolute inset-0 pointer-events-none z-0" />
 
-    <div class="container relative z-10 pt-[100px] pb-[80px] grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-x-12 lg:gap-x-24 grid-rows-[auto_auto_auto_auto_auto] gap-y-0 items-start">
-      
+    <div
+      class="container relative z-10 pt-[100px] pb-[80px] grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-x-12 lg:gap-x-24 grid-rows-[auto_auto_auto_auto_auto] gap-y-0 items-start">
+
       <!-- Headshot — minimal -->
       <!-- <div class="reveal reveal-delay-4 col-span-1 md:col-start-2 md:row-start-1 md:row-end-6 flex items-center justify-center mb-10 md:mb-0 -order-1 md:order-none self-center mx-auto md:mx-0">
         <div class="w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] rounded-full border-4 border-primary-light p-2 bg-white shadow-xl transition-default hover:border-primary hover:scale-[1.03]">
@@ -13,7 +14,8 @@
       </div> -->
 
       <!-- Greeting -->
-      <div class="reveal col-start-1 flex items-center gap-2.5 text-[0.9rem] font-medium text-muted mb-4 font-body" ref="greetEl">
+      <div class="reveal col-start-1 flex items-center gap-2.5 text-[0.9rem] font-medium text-muted mb-4 font-body"
+        ref="greetEl">
         <span class="w-2 h-2 bg-primary rounded-full anim-pulse" />
         <span>Hey there, I'm</span>
       </div>
@@ -25,9 +27,12 @@
       </h1>
 
       <!-- Typewriter Tagline -->
-      <div class="reveal reveal-delay-2 col-start-1 font-display text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold text-text mb-6 min-h-[2em]" ref="taglineEl">
+      <div
+        class="reveal reveal-delay-2 col-start-1 font-display text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold text-text mb-6 min-h-[2em]"
+        ref="taglineEl">
         <span class="text-muted">I </span>
-        <span class="text-primary">{{ displayedText }}<span class="inline-block anim-blink text-primary" :class="{ 'opacity-0': !showCursor }">|</span></span>
+        <span class="text-primary">{{ displayedText }}<span class="inline-block anim-blink text-primary"
+            :class="{ 'opacity-0': !showCursor }">|</span></span>
       </div>
 
       <!-- Sub Description -->
@@ -40,11 +45,15 @@
       <div class="reveal reveal-delay-4 col-start-1 flex gap-4 flex-wrap" ref="ctaEl">
         <a href="#projects" class="btn btn-primary">
           See My Work
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
-        <a href="/naufalazzmi_resume.pdf" download class="btn btn-outline">
+        <a :href="resumeUrl" download class="btn btn-outline">
           Download Resume
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+          </svg>
         </a>
       </div>
     </div>
@@ -59,6 +68,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+const resumeUrl = import.meta.env.BASE_URL + 'naufalazzmi_resume.pdf'
 
 const canvas = ref(null)
 const greetEl = ref(null)
@@ -170,22 +181,61 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.anim-pulse { animation: pulse 2s infinite; }
-.anim-blink { animation: blink 1s step-end infinite; }
-.anim-scrollDown { animation: scrollDown 2s ease-in-out infinite; }
+.anim-pulse {
+  animation: pulse 2s infinite;
+}
+
+.anim-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.anim-scrollDown {
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes scrollDown {
-  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-  100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 0;
+  }
 }
 </style>
