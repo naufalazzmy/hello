@@ -82,7 +82,7 @@ const ctaEl = ref(null)
 const lines = [
   'build things that actually work.',
   'ship cool side projects at 2am.',
-  'make the UI a little more beautiful.',
+  'compile complex problems into elegant solutions.',
   'turn coffee into functional code.',
   'break things — then fix them better.',
 ]
