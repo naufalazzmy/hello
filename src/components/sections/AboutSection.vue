@@ -24,7 +24,7 @@
           <!-- Quick Stats -->
           <div class="about-stats reveal reveal-delay-3">
             <div class="stat">
-              <span class="stat-num">14+</span>
+              <span class="stat-num">{{ projectsCount }}+</span>
               <span class="stat-label">Projects Shipped</span>
             </div>
             <div class="stat-divider" />
@@ -60,8 +60,10 @@
 <script setup>
 import { onMounted, computed } from 'vue'
 import { techStack } from '../../data/techStack.js'
+import { projects } from '../../data/projects.js'
 
 const yearsOfExperience = computed(() => new Date().getFullYear() - 2021)
+const projectsCount = projects.length
 
 const onIconError = (e) => {
   e.target.style.display = 'none'

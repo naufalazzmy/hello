@@ -14,11 +14,11 @@
       <!-- Hero Area -->
       <div class="project-hero">
         <div class="container">
-          <!-- Back link -->
+          <!-- Back link
           <router-link to="/#projects" class="back-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
             Back to Projects
-          </router-link>
+          </router-link> -->
 
           <!-- Category + Year -->
           <div class="hero-meta">
@@ -239,7 +239,11 @@ const categoryEmoji = computed(() => {
 
 .project-title {
   margin-bottom: 1rem;
-  line-height: 1.05;
+  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .project-description {
@@ -252,8 +256,8 @@ const categoryEmoji = computed(() => {
 
 /* Info Grid */
 .project-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -265,10 +269,13 @@ const categoryEmoji = computed(() => {
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 1.25rem 1.5rem;
+  gap: 4px;
+  padding: 0.875rem 1.25rem;
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+  margin: 0 -1px -1px 0;
+  flex: 1 1 auto;
+  min-width: 150px;
 }
 
 .info-item:last-child { border-right: none; }
@@ -342,7 +349,7 @@ const categoryEmoji = computed(() => {
 /* Cover Image */
 .cover-image-wrap {
   background: var(--color-surface);
-  padding: 0 0 3rem;
+  padding: 3rem 0;
 }
 
 .cover-image {
@@ -351,12 +358,20 @@ const categoryEmoji = computed(() => {
   background: var(--color-surface-2);
   aspect-ratio: 16/7;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .cover-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .cover-placeholder {
@@ -469,11 +484,9 @@ const categoryEmoji = computed(() => {
 
 @media (max-width: 768px) {
   .project-nav-grid { grid-template-columns: 1fr; }
-  .project-info-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 480px) {
-  .project-info-grid { grid-template-columns: 1fr; }
-  .info-item { border-right: none; }
+  .info-item { min-width: 100%; }
 }
 </style>

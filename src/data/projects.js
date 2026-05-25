@@ -432,6 +432,674 @@ export const projects = [
       },
     ],
   },
+  {
+    id: 7,
+    slug: "muturs",
+    title: "MUTURS - Hospital Quality Management Portal",
+    category: "Web App",
+    description:
+      "A lightning-fast, centralized internal platform engineered to elevate hospital service quality and streamline oversight across all administrative tiers.",
+    coverImage: "/projects/muturs/cover.jpg",
+    image: "/projects/muturs/img1.jpg",
+    tech: ["Filament", "Laravel", "PHP", "Tailwind CSS", "Livewire"],
+    github: null,
+    demo: "https://muturs.rsudntb.id/",
+    featured: false,
+    role: "Lead Full-Stack Developer",
+    duration: "1 Week",
+    year: "2024",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Healthcare operations move at breakneck speed, and their software needs to keep pace. This project was a high-octane, one-week mission to bring absolute clarity and control to the complex world of hospital administration.",
+      },
+      {
+        type: "heading",
+        value: "The Diagnosis: Fragmented Operations",
+      },
+      {
+        type: "text",
+        value:
+          "When it comes to patient care, operational friction isn't just annoying; it's a liability. The hospital's executive team required a centralized 'nervous system' to enforce service standards, monitor performance metrics, and unify communication across various management levels. The catch? They needed a production-ready solution immediately to address pressing quality assurance gaps.",
+      },
+      {
+        type: "heading",
+        value: "The Treatment: Rapid Architecture with Filament",
+      },
+      {
+        type: "text",
+        value:
+          "Challenge accepted. Operating under a strict seven-day deadline, I spearheaded the end-to-end development of a secure internal web application. Knowing that speed could not compromise reliability, I strategically elected to build the platform using Filament. This allowed me to rapidly scaffold a robust, highly intuitive administrative dashboard, translating complex, multi-tiered operational workflows into a sleek, actionable interface.",
+      },
+      {
+        type: "images",
+        items: [{ src: "/projects/muturs/img1.jpg" }],
+      },
+      {
+        type: "callout",
+        label: "💡 HR Insight: Agile Execution",
+        value:
+          "Delivering a secure, fully functional enterprise management tool from scratch in a single week demonstrates extreme technical proficiency, ruthless prioritization, and an elite ability to execute under pressure.",
+      },
+      {
+        type: "heading",
+        value: "The Prognosis: Empowered Leadership",
+      },
+      {
+        type: "text",
+        value:
+          "The result is a dynamic operational hub that empowers hospital leaders to seamlessly track service quality and identify bottlenecks in real-time. By accelerating the delivery of this platform, I eliminated administrative silos and provided management with the exact tools they need to uphold the highest standards of healthcare—proving that sometimes, rapid development yields the healthiest results.",
+      },
+      {
+        type: "quote",
+        author: "Lead Developer",
+        value:
+          "Who says enterprise healthcare software has to be a headache? Sometimes the best medicine for organizational chaos is a meticulously engineered dashboard, delivered ahead of schedule.",
+      },
+    ],
+  },
+  {
+    id: 8,
+    slug: "blood-donation-tracker",
+    title: "Hospital Blood Reserve & Distribution Tracker",
+    category: "Web App",
+    description:
+      "A mission-critical web application built to digitize, track, and seamlessly distribute life-saving blood donation data across hospital departments.",
+    coverImage: "/projects/darah/cover.jpg",
+    tech: ["PHP", "CodeIgniter 3", "Vanilla JavaScript", "Bootstrap CSS"],
+    github: null,
+    demo: null,
+    featured: false,
+    role: "Fullstack Developer",
+    duration: "2 Month",
+    year: "2021",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Picture this: It's my first year as a fullstack developer, and my inaugural mission isn't just about pushing pixels—it's about routing life-saving resources. The challenge? Architecting a robust blood donation tracker for a bustling hospital environment.",
+      },
+      {
+        type: "heading",
+        value: "The Pulse of the Problem",
+      },
+      {
+        type: "text",
+        value:
+          "Hospitals run on precision. When a donor rolls up their sleeve, that critical data needs to be logged, categorized, and distributed across various hospital wards without a single hiccup. A disorganized supply chain in healthcare isn't just an inconvenience; it's a severe operational risk. The hospital needed a digital central nervous system for their blood bank to replace fragmented tracking methods.",
+      },
+      {
+        type: "callout",
+        label: "💡 First-Year Milestone",
+        value:
+          "Taking ownership of a high-stakes healthcare application right out of the gate forged my deep appreciation for secure, fault-tolerant software architecture.",
+      },
+      {
+        type: "heading",
+        value: "Building the Arteries (The Tech)",
+      },
+      {
+        type: "text",
+        value:
+          "To keep the system lightweight, secure, and highly reliable, I leaned into the rock-solid MVC architecture of CodeIgniter 3. Writing clean, structured PHP ensured the backend was bulletproof. For the front end, I utilized Bootstrap CSS to deploy a clean, no-nonsense UI that medical staff could navigate instantly. To keep data entry snappy for nurses on the floor, I implemented pure Vanilla JavaScript—no heavy frameworks, just raw, efficient performance.",
+      },
+      {
+        type: "images",
+        items: [{ src: "/projects/darah/img1.jpg" }],
+      },
+      {
+        type: "quote",
+        author: "Development Philosophy",
+        value:
+          "When the end-user is busy saving lives, your code needs to be as clean, responsive, and reliable as the tools in their operating room.",
+      },
+      {
+        type: "heading",
+        value: "The Lifeline Delivered",
+      },
+      {
+        type: "text",
+        value:
+          "The result was a highly intuitive, fast, and centralized web application that successfully digitized the blood donation lifecycle. Hospital staff gained real-time visibility into their blood reserves, ensuring the right resources reached the right departments exactly when needed. Delivering a project with this level of real-world impact was the ultimate launchpad for my software engineering career.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    slug: "lab-clinic-wms-django",
+    title: "VitalStock: Lab Clinic Warehouse Management System",
+    category: "Web App",
+    description:
+      "A rapid-deployment Warehouse Management System built in Django to bring order, accuracy, and sanity to hospital lab clinic inventory.",
+    coverImage: "/projects/inventorylab/cover.jpg",
+    tech: ["Python", "Django", "Inventory Management", "Data Reporting"],
+    github: null,
+    demo: null,
+    featured: false,
+    role: "Fullstack Developer",
+    duration: "4 weeks",
+    year: "2021",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Welcome to the ultimate inventory glow-up. When a hospital lab clinic needed to get their crucial supplies in check, I stepped in to build a streamlined Warehouse Management System (WMS) that turned operational chaos into clinical clockwork.",
+      },
+      {
+        type: "heading",
+        value: "The Mission: Taming the Medical Supply Closet",
+      },
+      {
+        type: "text",
+        value:
+          "Hospital labs run on precision, but keeping track of reagents, vials, and critical medical supplies can quickly become a logistical nightmare. The clinic needed a robust, user-friendly system to manage their vital inventory—without drowning the medical staff in overly complex software. They needed reliability, and they needed it fast.",
+      },
+      {
+        type: "callout",
+        label: "⚡ Rapid Execution",
+        value:
+          "Designed, developed, and deployed from scratch in a lightning-fast 4-week sprint, proving that speed and high-quality architecture can absolutely share the same hospital room.",
+      },
+      {
+        type: "heading",
+        value: "The Method: Django to the Rescue",
+      },
+      {
+        type: "text",
+        value:
+          "Armed with Python and the Django framework, I engineered a web application tailored specifically for essential warehouse management. I built out critical core features like 'stock opname' (pain-free inventory auditing) and automated reporting, ensuring that every single beaker and bandage was accounted for. The backend was structured to be as reliable and steady as a heartbeat.",
+      },
+      {
+        type: "images",
+        items: [{ src: "/projects/inventorylab/img.jpg" }],
+      },
+      {
+        type: "quote",
+        author: "Developer Insight",
+        value:
+          "Writing clean code is always a win, but engineering a system that helps a hospital lab run smoother and focus on patient care? That’s the real career highlight.",
+      },
+      {
+        type: "heading",
+        value: "The Milestone: A Healthier Supply Chain",
+      },
+      {
+        type: "text",
+        value:
+          "The final product was a highly functional, no-nonsense WMS that empowered the clinic to track their stock with pinpoint accuracy and generate data-rich reports on the fly. It delivered an immediate boost to operational efficiency and stands as a masterclass in rapid, impactful web development.",
+      },
+    ],
+  },
+  {
+    id: 10,
+    slug: "hospital-data-lifeline",
+    title: "The Hospital Data Lifeline: Supercharging Analytics with Metabase",
+    category: "Web App",
+    description:
+      "Architected an end-to-end ETL pipeline and integrated Metabase to deliver dynamic, on-demand analytics to hospital auditors and management, eliminating manual query fatigue.",
+    coverImage: "/projects/dashboard/cover.jpg",
+    tech: [
+      "Metabase",
+      "ETL Pipelines",
+      "REST APIs",
+      "SQL",
+      "Server Administration",
+      "System Architecture",
+    ],
+    github: null,
+    demo: null,
+    featured: false,
+    role: "Fullstack Developer",
+    duration: "3-6 Months",
+    year: "2023",
+    content: [
+      {
+        type: "intro",
+        value:
+          "As a fullstack developer, our job isn't just to write code and spit out apps; it's to architect the absolute best-case scenario for the business. When hospital management needed rapid, robust data delivery, simply patching our existing systems wasn't going to cut it.",
+      },
+      {
+        type: "heading",
+        value: "The 'Why': Drowning in Manual Queries",
+      },
+      {
+        type: "text",
+        value:
+          "Working in a small hospital dev team comes with outsized responsibilities. Management demanded fast data delivery, which was manageable at first. But then came the auditors. They required highly complex, ever-shifting data patterns for compliance and review. Manually writing and running custom SQL queries every time a new data pattern was requested was rapidly becoming a massive bottleneck. I realized we didn't just need a feature update—we needed a complete paradigm shift in how we handled and delivered data.",
+      },
+      {
+        type: "callout",
+        label: "💡 The Big Pivot",
+        value:
+          "Instead of hardcoding endless reports into the main application, I pivoted to a provider-centric model, deploying Metabase as the heavy-lifting engine for our data analytics.",
+      },
+      {
+        type: "heading",
+        value: "The 'How': Building the Pipeline",
+      },
+      {
+        type: "text",
+        value:
+          "To make this vision a reality, I engineered a robust ETL (Extract, Transform, Load) pipeline to cleanly organize and feed our raw hospital data into Metabase. I handled the end-to-end deployment server settings to ensure high availability and strict data security. But I didn't stop at a standalone dashboard—I utilized the Metabase API to seamlessly embed these complex analytics directly into our main Super App, giving management a unified, single-pane-of-glass experience.",
+      },
+      {
+        type: "quote",
+        author: "Developer's Log",
+        value:
+          "A good developer builds an app to solve a problem. A great developer builds an ecosystem so they never have to run the same manual query twice.",
+      },
+      {
+        type: "heading",
+        value: "The 'Result': Automated Harmony",
+      },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/dashboard/img0.jpg" },
+          { src: "/projects/dashboard/img1.jpg" },
+        ],
+      },
+      {
+        type: "text",
+        value:
+          "The deployment was a total game-changer for hospital operations. Auditors could now access the complex, slice-and-dice data they needed without waiting on the dev team. Management got lightning-fast, embedded analytics right inside their daily Super App. By bridging the gap between raw database metrics and a user-friendly interface, I transformed a tedious manual chore into a slick, highly scalable automated pipeline.",
+      },
+    ],
+  },
+  {
+    id: 11,
+    slug: "wedinote-ai-saas",
+    title: "Wedinote",
+    category: "Web App",
+    description:
+      "An all-in-one digital wedding planner and guestbook SaaS, engineered with Next.js and cutting-edge AI-assisted development workflows.",
+    coverImage: "/projects/wedinote/cover.jpg",
+    tech: [
+      "Next.js",
+      "Generative AI",
+      "Model Context Protocol (MCP)",
+      "AI Coding Agents",
+      "SaaS Architecture",
+      "Tailwind CSS",
+      "Supabase",
+      "PostgreSQL",
+    ],
+    github: null,
+    demo: null,
+    featured: false,
+    role: "Lead Fullstack Developer & AI Integrator",
+    duration: "Ongoing (Beta)",
+    year: "2026",
+    content: [
+      {
+        type: "intro",
+        value:
+          "In the golden age of Generative AI and the relentless wave of SaaS innovation, I decided to ride the crest and build something truly impactful. Enter Wedinote: a next-generation platform designed to take the stress out of saying 'I do.'",
+      },
+      {
+        type: "heading",
+        value: "The Why: Taming the Wedding Chaos",
+      },
+      {
+        type: "text",
+        value:
+          "Weddings are beautiful, but planning them is notoriously chaotic. I saw a prime opportunity to bring order to the madness by architecting a unified digital wedding planner. The vision was simple but ambitious: bundle digital invitations, a robust planning dashboard, and an interactive guestbook into one seamless, elegant SaaS application.",
+      },
+      {
+        type: "heading",
+        value: "The How: Orchestrating AI as a Co-Pilot",
+      },
+      {
+        type: "text",
+        value:
+          "Under the hood, Wedinote is powered by a high-performance Next.js foundation. But the real magic happened in the development workflow itself. I didn't just write code; I orchestrated AI. From brainstorming core features and generating dynamic content to configuring advanced Generative AI coding agents equipped with custom skills and Model Context Protocol (MCP) integrations, this project was a masterclass in modern software engineering.",
+      },
+      {
+        type: "callout",
+        label: "💡 Core Technical Insight",
+        value:
+          "Leveraging MCP and custom AI agents drastically reduced boilerplate overhead, allowing me to focus entirely on complex state management, user experience, and high-level SaaS architecture.",
+      },
+      {
+        type: "heading",
+        value: "The Result: A Private Beta and a Paradigm Shift",
+      },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/wedinote/img.jpeg" },
+          { src: "/projects/wedinote/img1.jpg" },
+          { src: "/projects/wedinote/img2.jpg" },
+        ],
+      },
+      {
+        type: "text",
+        value:
+          "Currently deployed in a private beta testing phase, Wedinote is already proving its mettle in the wild. Beyond delivering a functional product, the most profound takeaway was experiencing firsthand the paradigm shift from traditional manual coding to high-octane, AI-assisted development.",
+      },
+      {
+        type: "quote",
+        author: "Project Reflection",
+        value:
+          "Building Wedinote taught me that the future of engineering isn't just about writing better syntax; it's about seamlessly collaborating with AI to architect vastly superior systems.",
+      },
+    ],
+  },
+  {
+    id: 12,
+    slug: "sifin-saas",
+    title: "SifIn: Intelligent Shift Management & Presence Verification",
+    category: "Web App",
+    description:
+      "A high-integrity shift and attendance ecosystem utilizing device GPS, real-time face detection, and local network validation to eliminate buddy-punching.",
+    coverImage: "/projects/sifin/cover.jpg",
+    tech: [
+      "Laravel",
+      "Vue.js",
+      "Inertia.js",
+      "GPS Geolocation API",
+      "Face Detection API",
+      "Laravel Cloud",
+    ],
+    github: null,
+    demo: "http://sifin-main-sbditw.free.laravel.cloud/",
+    featured: false,
+    role: "Lead Fullstack Developer",
+    duration: "7 Days",
+    year: "2026",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Say goodbye to vulnerable paper rosters and easily tricked time clocks. SifIn is a modern shift management SaaS engineered to keep dynamic teams in perfect sync—whether they are handling critical patient care on-site or operating deep in the field.",
+      },
+      {
+        type: "heading",
+        value: "The Friction: Ghost Hours & Attendance gymnastics",
+      },
+      {
+        type: "text",
+        value:
+          "Local businesses, particularly multi-shift healthcare facilities and field-heavy enterprises, were drowning in attendance chaos. Between manual spreadsheets, forgotten ID cards, and honor-system messaging for remote check-ins, tracking presence was an administrative nightmare. Management lost hours verifying payroll claims, while vulnerable workflows left companies exposed to 'buddy punching.' The market needed a bulletproof, frictionless solution capable of confirming real-world presence instantly.",
+      },
+      {
+        type: "callout",
+        label: "💡 Key Insight",
+        value:
+          "By relying on native hardware layers instead of pure trust, we turned the everyday smartphone into an immutable biometric verification hub.",
+      },
+      {
+        type: "heading",
+        value: "The Blueprint: Architecting a Tri-Fold Verification Matrix",
+      },
+      {
+        type: "text",
+        value:
+          "To solve this, I built SifIn using the ultra-efficient Laravel, Inertia, and Vue.js trifecta. This architecture delivers a lightning-fast, native-feeling Single Page Application (SPA) tuned for mobile web views. Under the hood, I engineered a multi-layered validation routine: precise GPS geolocation coordinates for field workers, instantaneous local Wi-Fi gateway handshakes for desk staff, and a lightweight browser-based face detection API to seal identity. Everything was deployed seamlessly via Laravel Cloud to handle elastic scale gracefully.",
+      },
+      {
+        type: "quote",
+        author: "Lead Developer",
+        value:
+          "We didn't just write an API; we designed an agile presence-verification machine that respects both the business's bottom line and the employee's time.",
+      },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/sifin/img.jpg" },
+          { src: "/projects/sifin/img2.jpg" },
+          { src: "/projects/sifin/img3.jpg" },
+        ],
+      },
+      {
+        type: "heading",
+        value: "The Outcome: Validated Integrity & Real-World Trials",
+      },
+      {
+        type: "text",
+        value:
+          "The resulting application bridges high-security logic with an incredibly fluid interface. SifIn has successfully moved from the lab into an active beta test environment at a local clinic, handling real-time staff shift changes, complex rotations, and automated time-logging with absolute precision. By offering contextual, flexible check-in methods, the platform completely eliminates manual errors and provides administrators with a single, unalterable source of truth.",
+      },
+    ],
+  },
+  {
+    id: 13,
+    slug: "vue-interactive-form-builder",
+    title: "Interactive Form Builder",
+    category: "Web App",
+    description:
+      "A robust, interactive form builder built in Vue to empower non-technical users and eliminate developer bottlenecks. Built 100% manually to challenge my architectural chops.",
+    coverImage: "/projects/formbuilder/cover.jpg",
+    tech: ["Vue.js"],
+    github: "https://github.com/naufalazzmy/form-builder",
+    demo: "https://naufalazzmy.github.io/form-builder/",
+    featured: false,
+    role: "Lead Frontend Engineer",
+    duration: "6 Weeks",
+    year: "2024",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Let's be real: no developer dreams of spending their sprint tweaking slightly different versions of the exact same medical form. I decided to flip the script, eliminate the bottleneck, and put the power directly into the users' hands.",
+      },
+      {
+        type: "heading",
+        value: "The Spark: Curing the Copy-Paste Blues",
+      },
+      {
+        type: "text",
+        value:
+          "In the fast-paced world of medical record development, our internal users demanded rapid form deployments with a UX that mimicked the physical paper workflows they already knew and loved. For the dev team, this translated to a massive time-sink—endless Jira tickets just to accommodate slight data variations. The bottleneck was glaring. Rather than playing catch-up, I aimed to remove developers from the form-creation equation entirely.",
+      },
+      {
+        type: "callout",
+        label: "💡 Architectural Shift",
+        value:
+          "Instead of hardcoding a thousand slightly different forms, I engineered a system where the end-users effectively become their own frontend developers.",
+      },
+      {
+        type: "heading",
+        value: "The Execution: Pure Vue, No Training Wheels",
+      },
+      {
+        type: "text",
+        value:
+          "I architected an intuitive, interactive form builder. Non-technical users can now seamlessly construct bespoke layouts on the fly. The magic happens under the hood: the builder instantly serializes their visual layout into a clean, standardized JSON schema. This payload is then effortlessly digested and rendered by our primary frontend architecture, bridging the gap between non-technical creation and technical execution.",
+      },
+      {
+        type: "quote",
+        author: "Developer Philosophy",
+        value:
+          "Sometimes, to truly test your mettle, you have to turn off the autopilot. I built this entirely without Gen AI just to see if my gut was as sharp as my IDE.",
+      },
+      {
+        type: "heading",
+        value: "The Result: Unblocking the Dev Pipeline",
+      },
+      {
+        type: "text",
+        value:
+          "Developed entirely in Vue during 2024, this project was an exhilarating challenge in component design and complex state management. The result? Our medical staff gets their pixel-perfect forms in minutes, our developers get their time back, and I got the satisfaction of proving that good old-fashioned coding grit never goes out of style.",
+      },
+    ],
+  },
+  {
+    id: 14,
+    slug: "hospital-super-app-evolution",
+    title: "SIMRS: A 5-Year Evolution",
+    category: "Web App",
+    description:
+      "A transformative 5-year journey upgrading a massive legacy PHP hospital management system into a modern, highly scalable, DDD-architected Laravel & React ecosystem.",
+    coverImage: "/projects/simrs/cover.jpg",
+    tech: [
+      "Laravel",
+      "ReactJS",
+      "PHP",
+      "Domain-Driven Design (DDD)",
+      "WebSockets",
+      "REST API",
+      "MySQL",
+    ],
+    github: null,
+    demo: null,
+    featured: true,
+    role: "Lead Developer, Fullstack Engineer, Backend Architecture Specialist",
+    duration: "5+ Years",
+    year: "2026",
+    content: [
+      {
+        type: "intro",
+        value:
+          "What started as my first role as a Software Engineer turned into an epic five-year saga of transforming a hospital's digital heartbeat. Imagine a monolithic 'Super App' that handles everything from doctor schedules and electronic medical records to warehouse inventory, HR, and vendor management. Now, imagine rebuilding it from scratch while keeping the hospital running smoothly. Challenge accepted.",
+      },
+      {
+        type: "heading",
+        value: "🎯 The 'Why': From Native PHP to Modern Lifesaver",
+      },
+      {
+        type: "text",
+        value:
+          "When I first joined, the hospital was relying on a legacy system built entirely in native PHP—everything from authentication and caching to the API layer was custom-rolled. The mission was clear: modernize the core logic without losing the bespoke business rules. We needed stability, security, and a foundation that wouldn't give us a headache every time we needed to scale.",
+      },
+      {
+        type: "images",
+        items: [
+          {
+            src: "/projects/simrs/img.jpg",
+          },
+        ],
+      },
+      {
+        type: "callout",
+        label: "💡 Soft Skills Level Up",
+        value:
+          "Working bottom-up meant diving deep into the trenches. I spent just as much time understanding user workflows—translating raw hospital needs into technical requirements—as I did writing code. It was a baptism by fire that massively accelerated my communication and product management skills.",
+      },
+      {
+        type: "heading",
+        value: "🚀 The 'How' Phase 1: The Laravel Revival (2019–2024)",
+      },
+      {
+        type: "images",
+        items: [
+          {
+            src: "/projects/simrs/img1.jpg",
+          },
+          {
+            src: "/projects/simrs/img2.jpg",
+          },
+        ],
+      },
+      {
+        type: "text",
+        value:
+          "Partnering closely with a senior engineer, we spearheaded the migration to Laravel. We leveraged its built-in features to clean up the architecture while introducing highly efficient caching layers, hardened security via third-party APIs, and WebSockets for real-time updates. By optimizing database queries and implementing robust cron jobs, we built a system that purred quietly under heavy operational loads.",
+      },
+      {
+        type: "heading",
+        value: "🏗️ The 'How' Phase 2: Scaling Smartly (2025–Present)",
+      },
+      {
+        type: "text",
+        value:
+          "By 2025, our team had grown, and the application needed to evolve again. To prevent stepping on each other's toes, we strategically decoupled the frontend and backend. I pivoted to focus entirely on backend architecture. We adopted Domain-Driven Design (DDD) within Laravel to separate modules logically, ensuring cross-team understanding and frictionless feature updates. Meanwhile, the frontend transitioned to ReactJS, and with the integration of AI tools in our workflow, our development speed became downright rapid.",
+      },
+      {
+        type: "quote",
+        author: "My Engineering Philosophy",
+        value:
+          "Overengineering might sound cool in technical blogs, but in the trenches of real-world development, 'it works efficiently and scales easily' is the ultimate feature.",
+      },
+      {
+        type: "heading",
+        value: "🎉 The 'Result': Impact Beyond Code",
+      },
+      {
+        type: "text",
+        value:
+          "The results transcended standard engineering metrics. The 2024 version rollout drastically improved the hospital's operational efficiency, plugging cashflow leaks and directly contributing to a measurable increase in the hospital's financial surplus. Today, the system isn't just a piece of software; it's a scalable, breathing ecosystem that empowers the medical staff and management team to do their best work, supported by an architecture that's built to last.",
+      },
+    ],
+  },
+  {
+    id: 15,
+    slug: "computer-vision-cabbage-detection",
+    title: "Computer Vision: Cabbage Detection",
+    category: "AI",
+    description:
+      "Engineered a lightweight, edge-deployed CNN on a Raspberry Pi to power an autonomous disinfectant-spraying robot, reducing human exposure to hazardous agricultural chemicals.",
+    coverImage: "/projects/cnn/cover.webp",
+    tech: [
+      "Open CV",
+      "Python",
+      "TensorFlow",
+      "Computer Vision",
+      "CNN",
+      "Raspberry Pi",
+      "Deep Learning",
+    ],
+    github: null,
+    demo: null,
+    featured: false,
+    role: "Computer Vision Engineer",
+    duration: "3 Months",
+    year: "2020",
+    content: [
+      {
+        type: "intro",
+        value:
+          "Cast your mind back to 2020. Deep Learning was the absolute wild west, the hype train was moving at terminal velocity, and I was deeply obsessed with the possibilities of image processing. This project was born as a side-thesis adventure with a highly practical goal: building an autonomous robot to spray agricultural disinfectants, completely removing humans from the hazardous chemical equation.",
+      },
+      {
+        type: "heading",
+        value: "The Mission: Give a Robot Cabbage-Vision",
+      },
+      {
+        type: "text",
+        value:
+          "While the rest of the team built the physical rover, my responsibility was to give it eyes. The objective sounded straightforward enough on paper: detect cabbages in the field so the robot knows exactly where to direct its payload. But there was a massive catch. This entire system had to run locally on a humble Raspberry Pi. We were talking pure edge computing with zero room for bloated models or cloud computing latency.",
+      },
+      {
+        type: "callout",
+        label: "💡 The Hardware Bottleneck",
+        value:
+          "Balancing high accuracy with extreme hardware constraints. I needed an architecture lightweight enough to run inference on a Raspberry Pi without melting the board, yet precise enough to confidently differentiate a cabbage from ambient foliage.",
+      },
+      {
+        type: "heading",
+        value: "The Execution: Training on GPUs, Deploying on the Edge",
+      },
+      {
+        type: "text",
+        value:
+          "I rolled up my sleeves and tackled the full machine learning lifecycle from scratch. After rigorously gathering, cleaning, and preparing the training data, I architected a custom Convolutional Neural Network (CNN) using TensorFlow. I put my local GPU to the ultimate test during the training phase, iteratively tweaking hyperparameters to achieve maximum efficiency. It was a masterclass in optimization—stripping away the excess until the model was lean, mean, and ready for deployment on low-power hardware.",
+      },
+      {
+        type: "quote",
+        author: "Project Reflection",
+        value:
+          "Building for edge devices forces you to trade raw, brute-force compute power for algorithmic elegance. That constraint is where the real engineering magic happens.",
+      },
+      {
+        type: "heading",
+        value: "The Result: Mission Accomplished",
+      },
+      {
+        type: "images",
+        items: [
+          { src: "/projects/cnn/video.webm" },
+          { src: "/projects/cnn/video1.webm" },
+        ],
+      },
+      {
+        type: "text",
+        value:
+          "The deployment was a major success. Running purely on the Pi, the custom CNN accurately identified cabbages in real-time, effectively guiding the robot's spraying mechanism and significantly reducing the need for human interaction with toxic chemicals. While I’d love to revisit the codebase and benchmark it against today’s cutting-edge lightweight models, this project stands as a massive milestone in my journey—proving my ability to own an end-to-end ML pipeline from data curation to edge deployment.",
+      },
+    ],
+  },
 ];
 
 export const categories = ["All", "Web App", "Game Dev", "AI Research"];

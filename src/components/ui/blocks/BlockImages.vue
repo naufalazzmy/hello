@@ -1,8 +1,9 @@
 <template>
   <div class="block-images" :class="`cols-${block.items?.length > 2 ? 3 : 2}`">
     <figure v-for="(item, i) in block.items" :key="i" class="gallery-item">
-      <div class="image-wrap" @click="selectedImage = resolveSrc(item.src)">
-        <img :src="resolveSrc(item.src)" :alt="item.caption || 'Gallery image'" loading="lazy" @error="e => e.target.parentElement.classList.add('error')" />
+      <div class="image-wrap" @click="selectedMedia = resolveSrc(item.src)">
+        <video v-if="isVideo(item.src)" :src="resolveSrc(item.src)" autoplay muted loop playsinline @error="e => e.target.parentElement.classList.add('error')"></video>
+        <img v-else :src="resolveSrc(item.src)" :alt="item.caption || 'Gallery image'" loading="lazy" @error="e => e.target.parentElement.classList.add('error')" />
         <div class="img-placeholder">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         </div>
@@ -12,10 +13,11 @@
 
     <Teleport to="body">
       <Transition name="lightbox-fade">
-        <div v-if="selectedImage" class="lightbox-overlay" @click="selectedImage = null">
+        <div v-if="selectedMedia" class="lightbox-overlay" @click="selectedMedia = null">
           <div class="lightbox-content">
-            <img :src="selectedImage" alt="Enlarged view" />
-            <button class="close-btn" @click.stop="selectedImage = null">
+            <video v-if="isVideo(selectedMedia)" :src="selectedMedia" autoplay muted loop playsinline></video>
+            <img v-else :src="selectedMedia" alt="Enlarged view" />
+            <button class="close-btn" @click.stop="selectedMedia = null">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
           </div>
@@ -30,7 +32,12 @@ import { ref } from 'vue'
 
 defineProps({ block: Object })
 
-const selectedImage = ref(null)
+const selectedMedia = ref(null)
+
+const isVideo = (path) => {
+  if (!path) return false
+  return /\.(mp4|webm|ogg|mov)$/i.test(path.split('?')[0])
+}
 
 const resolveSrc = (path) => {
   if (!path) return ''
@@ -63,14 +70,16 @@ const resolveSrc = (path) => {
   cursor: pointer;
 }
 
-.image-wrap img {
+.image-wrap img,
+.image-wrap video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.image-wrap:hover img { transform: scale(1.05); }
+.image-wrap:hover img,
+.image-wrap:hover video { transform: scale(1.05); }
 
 .img-placeholder {
   position: absolute;
@@ -83,7 +92,8 @@ const resolveSrc = (path) => {
 }
 
 .image-wrap.error .img-placeholder { display: flex; }
-.image-wrap.error img { display: none; }
+.image-wrap.error img,
+.image-wrap.error video { display: none; }
 
 figcaption {
   font-size: 0.8rem;
@@ -117,7 +127,8 @@ figcaption {
   max-height: 90vh;
 }
 
-.lightbox-content img {
+.lightbox-content img,
+.lightbox-content video {
   max-width: 100%;
   max-height: 90vh;
   object-fit: contain;
