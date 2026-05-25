@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="min-h-screen">
     <CustomCursor />
     <AppNav />
     <main>
@@ -21,10 +21,6 @@ import AppFooter from './components/layout/AppFooter.vue'
 </script>
 
 <style>
-#app {
-  min-height: 100vh;
-}
-
 /* ── Page Fade Transition ── */
 .page-fade-enter-active,
 .page-fade-leave-active {

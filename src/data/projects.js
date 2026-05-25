@@ -1027,7 +1027,7 @@ export const projects = [
     id: 15,
     slug: "computer-vision-cabbage-detection",
     title: "Computer Vision: Cabbage Detection",
-    category: "AI",
+    category: "AI Research",
     description:
       "Engineered a lightweight, edge-deployed CNN on a Raspberry Pi to power an autonomous disinfectant-spraying robot, reducing human exposure to hazardous agricultural chemicals.",
     coverImage: "/projects/cnn/cover.webp",

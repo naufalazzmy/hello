@@ -1,35 +1,35 @@
 <template>
-  <section id="projects" class="section-padding" style="background: var(--color-surface);">
+  <section id="projects" class="py-[80px] md:py-[120px] bg-surface">
     <div class="container">
       <!-- Header -->
-      <div class="projects-header">
+      <div class="flex flex-col sm:flex-row justify-between items-start gap-8 mb-12 flex-wrap">
         <div>
-          <span class="section-label reveal" ref="labelEl">Projects</span>
+          <span class="inline-flex items-center gap-2 font-display text-xs font-bold tracking-[0.12em] uppercase text-primary mb-6 reveal before:content-[''] before:block before:w-6 before:h-[2px] before:bg-primary before:rounded-[2px]" ref="labelEl">Projects</span>
           <h2 class="text-h1 reveal reveal-delay-1">
-            Things I've <span style="color: var(--color-primary)">shipped.</span>
+            Things I've <span class="text-primary">shipped.</span>
           </h2>
         </div>
-        <p class="text-body reveal reveal-delay-2" style="color: var(--color-muted); max-width: 400px; align-self: flex-end;">
+        <p class="text-body text-muted max-w-[400px] sm:self-end reveal reveal-delay-2">
           {{ filteredProjects.length }} projects across game dev, AI & the web. Use the filters to explore.
         </p>
       </div>
 
       <!-- Filter Buttons -->
-      <div class="filter-row reveal reveal-delay-2">
+      <div class="flex gap-3 flex-wrap mb-12 reveal reveal-delay-2">
         <button
           v-for="cat in categories"
           :key="cat"
-          class="filter-btn"
-          :class="{ active: activeFilter === cat }"
+          class="inline-flex items-center gap-2 px-[22px] py-[10px] rounded-full font-body text-[0.875rem] font-semibold border-[1.5px] border-border bg-white text-muted transition-default cursor-none hover:border-primary hover:text-primary"
+          :class="activeFilter === cat ? '!bg-primary !border-primary !text-white shadow-glow' : ''"
           @click="setFilter(cat)"
         >
-          <span class="filter-count">{{ countFor(cat) }}</span>
+          <span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-[0.7rem] font-bold transition-default" :class="activeFilter === cat ? 'bg-white/20' : 'bg-surface-2 text-text'">{{ countFor(cat) }}</span>
           {{ cat }}
         </button>
       </div>
 
       <!-- Projects Grid -->
-      <TransitionGroup name="project-grid" tag="div" class="projects-grid">
+      <TransitionGroup name="project-grid" tag="div" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <ProjectCard
           v-for="project in filteredProjects"
           :key="project.id"
@@ -69,75 +69,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.projects-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-/* Filter Buttons */
-.filter-row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-
-.filter-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 22px;
-  border-radius: var(--radius-full);
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border: 1.5px solid var(--color-border);
-  background: var(--color-white);
-  color: var(--color-muted);
-  transition: var(--transition);
-}
-
-.filter-btn:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.filter-btn.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: white;
-  box-shadow: 0 4px 16px var(--color-primary-glow);
-}
-
-.filter-count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  font-size: 0.7rem;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.2);
-  transition: var(--transition);
-}
-
-.filter-btn:not(.active) .filter-count {
-  background: var(--color-surface-2);
-  color: var(--color-text);
-}
-
-/* Projects Grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
 /* Transition */
 .project-grid-enter-active,
 .project-grid-leave-active {
@@ -153,13 +84,5 @@ onMounted(() => {
 }
 .project-grid-move {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (max-width: 900px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .projects-header { flex-direction: column; }
 }
 </style>

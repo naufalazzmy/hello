@@ -1,11 +1,3 @@
 <template>
-  <hr class="block-divider" />
+  <hr class="border-none border-t border-border my-12" />
 </template>
-
-<style scoped>
-.block-divider {
-  border: none;
-  border-top: 1px solid var(--color-border);
-  margin: 3rem 0;
-}
-</style>

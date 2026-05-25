@@ -1,5 +1,5 @@
 <template>
-  <div class="content-renderer">
+  <div class="max-w-[740px]">
     <template v-for="(block, i) in content" :key="i">
       <BlockIntro    v-if="block.type === 'intro'"    :block="block" />
       <BlockHeading  v-else-if="block.type === 'heading'"  :block="block" />
@@ -13,9 +13,9 @@
     </template>
 
     <!-- Empty state -->
-    <div v-if="!content || content.length === 0" class="empty-content">
+    <div v-if="!content || content.length === 0" class="flex flex-col items-center gap-4 py-16 px-8 text-center bg-surface rounded-lg border border-dashed border-border text-muted">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-      <p>Project write-up coming soon.</p>
+      <p class="text-[0.95rem] font-medium">Project write-up coming soon.</p>
     </div>
   </div>
 </template>
@@ -35,27 +35,3 @@ defineProps({
   content: { type: Array, default: () => [] }
 })
 </script>
-
-<style scoped>
-.content-renderer {
-  max-width: 740px;
-}
-
-.empty-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 4rem 2rem;
-  color: var(--color-muted);
-  text-align: center;
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px dashed var(--color-border);
-}
-
-.empty-content p {
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-</style>

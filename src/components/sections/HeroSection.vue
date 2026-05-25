@@ -1,35 +1,43 @@
 <template>
-  <section id="hero" class="hero">
+  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden bg-bg">
     <!-- Particle Canvas -->
-    <canvas ref="canvas" class="hero-canvas" />
+    <canvas ref="canvas" class="absolute inset-0 pointer-events-none z-0" />
 
-    <div class="container hero-content">
+    <div class="container relative z-10 pt-[100px] pb-[80px] grid grid-cols-1 md:grid-cols-[1fr_auto] md:gap-x-12 lg:gap-x-24 grid-rows-[auto_auto_auto_auto_auto] gap-y-0 items-start">
+      
+      <!-- Headshot — minimal -->
+      <!-- <div class="reveal reveal-delay-4 col-span-1 md:col-start-2 md:row-start-1 md:row-end-6 flex items-center justify-center mb-10 md:mb-0 -order-1 md:order-none self-center mx-auto md:mx-0">
+        <div class="w-[160px] h-[160px] sm:w-[180px] sm:h-[180px] md:w-[240px] md:h-[240px] lg:w-[300px] lg:h-[300px] rounded-full border-4 border-primary-light p-2 bg-white shadow-xl transition-default hover:border-primary hover:scale-[1.03]">
+          <img src="../../assets/profile.webp" alt="Naufal Azzmi" class="w-full h-full rounded-full object-cover" />
+        </div>
+      </div> -->
+
       <!-- Greeting -->
-      <div class="hero-greeting reveal" ref="greetEl">
-        <span class="greeting-dot" />
+      <div class="reveal col-start-1 flex items-center gap-2.5 text-[0.9rem] font-medium text-muted mb-4 font-body" ref="greetEl">
+        <span class="w-2 h-2 bg-primary rounded-full anim-pulse" />
         <span>Hey there, I'm</span>
       </div>
 
       <!-- Name -->
-      <h1 class="text-display hero-name reveal reveal-delay-1" ref="nameEl">
+      <h1 class="reveal reveal-delay-1 col-start-1 text-display mb-6 leading-none" ref="nameEl">
         Naufal<br />
-        <span class="name-accent">Azzmi.</span>
+        <span class="text-primary relative">Azzmi.</span>
       </h1>
 
       <!-- Typewriter Tagline -->
-      <div class="hero-tagline reveal reveal-delay-2" ref="taglineEl">
-        <span class="tagline-prefix">I </span>
-        <span class="typewriter">{{ displayedText }}<span class="cursor-blink" :class="{ hide: !showCursor }">|</span></span>
+      <div class="reveal reveal-delay-2 col-start-1 font-display text-[clamp(1.1rem,2.5vw,1.5rem)] font-semibold text-text mb-6 min-h-[2em]" ref="taglineEl">
+        <span class="text-muted">I </span>
+        <span class="text-primary">{{ displayedText }}<span class="inline-block anim-blink text-primary" :class="{ 'opacity-0': !showCursor }">|</span></span>
       </div>
 
       <!-- Sub Description -->
-      <p class="hero-desc text-body reveal reveal-delay-3" ref="descEl">
+      <p class="reveal reveal-delay-3 col-start-1 text-body max-w-[480px] text-muted mb-10" ref="descEl">
         Software Engineer crafting cool things across web, AI & games.
         Ship on time. Always built with intent.
       </p>
 
       <!-- CTAs -->
-      <div class="hero-ctas reveal reveal-delay-4" ref="ctaEl">
+      <div class="reveal reveal-delay-4 col-start-1 flex gap-4 flex-wrap" ref="ctaEl">
         <a href="#projects" class="btn btn-primary">
           See My Work
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -39,23 +47,12 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
         </a>
       </div>
-
-      <!-- Headshot — minimal -->
-      <div class="hero-avatar reveal reveal-delay-4">
-        <div class="avatar-ring">
-          <img src="../../assets/profile.webp" alt="Naufal Azzmi" class="avatar-image" />
-        </div>
-        <div class="avatar-label">
-          <span class="text-xs">Naufal Azzmi</span>
-          <span class="text-xs" style="color: var(--color-muted)">Software Engineer</span>
-        </div>
-      </div>
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="scroll-indicator">
-      <div class="scroll-line" />
-      <span class="text-xs" style="color: var(--color-muted)">scroll</span>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+      <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent origin-top anim-scrollDown" />
+      <span class="text-xs text-muted">scroll</span>
     </div>
   </section>
 </template>
@@ -112,7 +109,7 @@ const initParticles = () => {
   el.width = window.innerWidth
   el.height = window.innerHeight
   ctx = el.getContext('2d')
-  particles = Array.from({ length: 55 }, () => ({
+  particles = Array.from({ length: 150 }, () => ({
     x: Math.random() * el.width,
     y: Math.random() * el.height,
     r: Math.random() * 2.5 + 0.5,
@@ -173,195 +170,22 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: var(--color-bg);
-}
-
-.hero-canvas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto auto auto auto;
-  gap: 0;
-  align-items: start;
-}
-
-.hero-greeting {
-  grid-column: 1;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-muted);
-  margin-bottom: 1rem;
-  font-family: var(--font-body);
-}
-
-.greeting-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-primary);
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
+.anim-pulse { animation: pulse 2s infinite; }
+.anim-blink { animation: blink 1s step-end infinite; }
+.anim-scrollDown { animation: scrollDown 2s ease-in-out infinite; }
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.8); }
 }
-
-.hero-name {
-  grid-column: 1;
-  margin-bottom: 1.5rem;
-  line-height: 1.0;
-}
-
-.name-accent {
-  color: var(--color-primary);
-  position: relative;
-}
-
-.hero-tagline {
-  grid-column: 1;
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 1.5rem;
-  min-height: 2em;
-}
-
-.tagline-prefix {
-  color: var(--color-muted);
-}
-
-.typewriter {
-  color: var(--color-primary);
-}
-
-.cursor-blink {
-  display: inline-block;
-  animation: blink 1s step-end infinite;
-  color: var(--color-primary);
-}
-
-.cursor-blink.hide { opacity: 0; }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-.hero-desc {
-  grid-column: 1;
-  max-width: 480px;
-  color: var(--color-muted);
-  margin-bottom: 2.5rem;
-}
-
-.hero-ctas {
-  grid-column: 1;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-/* Avatar — right side, minimal */
-.hero-avatar {
-  grid-column: 2;
-  grid-row: 1 / 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-left: 4rem;
-  margin-top: 2rem;
-}
-
-.avatar-ring {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 2px solid var(--color-primary-light);
-  padding: 4px;
-  background: var(--color-white);
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-}
-
-.avatar-ring:hover {
-  border-color: var(--color-primary);
-  transform: scale(1.05);
-}
-
-.avatar-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.avatar-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 1;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--color-primary), transparent);
-  animation: scrollDown 2s ease-in-out infinite;
-}
-
 @keyframes scrollDown {
   0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
   50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
   100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
-}
-
-@media (max-width: 900px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-  }
-  .hero-avatar {
-    grid-column: 1;
-    grid-row: auto;
-    flex-direction: row;
-    margin-left: 0;
-    margin-bottom: 2rem;
-    order: -1;
-  }
-  .avatar-ring { width: 72px; height: 72px; }
 }
 </style>
